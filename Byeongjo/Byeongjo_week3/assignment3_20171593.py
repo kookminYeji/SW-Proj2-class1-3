@@ -34,7 +34,7 @@ def doScoreDB(scdb):
         parse = inputstr.split(" ")
         if parse[0] == 'add':
             try: #이름, 나이, 점수를 적지 않았을 때.
-                record = {'Name':parse[1], 'Age':parse[2], 'Score':parse[3]}
+                record = {'Name': parse[1], 'Age': int(parse[2]), 'Score': int(parse[3])}
             except IndexError:
                 print("Write Name, Age, Score")
             else:
@@ -55,8 +55,8 @@ def doScoreDB(scdb):
                 for k in scdb :
                     if k["Name"] == parse[1]:
                         for attr in sorted(k):
-                            print(attr + "=" + k[attr], end=' ')
-                            print()
+                            print(attr + "=" + str(k[attr]), end=' ')
+                        print()
             except IndexError:
                 print("Write name to find information")
         elif parse[0] == 'inc':
