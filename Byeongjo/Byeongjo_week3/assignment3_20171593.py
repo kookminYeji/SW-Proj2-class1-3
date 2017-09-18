@@ -41,8 +41,8 @@ def doScoreDB(scdb):
                 scdb += [record]
         elif parse[0] == 'del':
             try: #삭제할 이름을 적지 않았을 때.
-                copy_scdb = scdb[:]
-                for p in copy_scdb:
+                reverse_scdb = sorted(scdb, key=lambda x: x["Name"], reverse=True)
+                for p in reverse_scdb:
                     if p['Name'] == parse[1]:
                         scdb.remove(p)
             except IndexError:
@@ -54,9 +54,7 @@ def doScoreDB(scdb):
             try:
                 for k in scdb :
                     if k["Name"] == parse[1]:
-                        for attr in sorted(k):
-                            print(attr + "=" + str(k[attr]), end=' ')
-                        print()
+                        showScoreDB([k],"Name")
             except IndexError:
                 print("Write name to find information")
         elif parse[0] == 'inc':
