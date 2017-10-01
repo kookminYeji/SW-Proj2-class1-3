@@ -7,7 +7,7 @@ def factorialRecursive(n):
 def factorial_wf(n):
     i = 0
     _factorial = 1
-    while ( i < n):
+    while i < n:
         _factorial = _factorial * ( i + 1)
         i+=1
     return _factorial
