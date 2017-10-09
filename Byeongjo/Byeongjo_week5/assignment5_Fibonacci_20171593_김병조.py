@@ -8,14 +8,17 @@ def fibo(n):
 
 n = int(input("Enter a number : "))
 ts = time.time()
-k = 1
-num = 0
-i = 1
-while i < n :
-    a = k #전값
-    k = num + a #전값+전전값
-    num = a #전전값
-    i = i+1
+if n <= 1 :
+    k = n
+else :
+    k = 1
+    num = 0
+    i = 1
+    while i < n :
+        a = k #전값
+        k = num + a #전값+전전값
+        num = a #전전값
+        i = i+1
 ts = time.time() - ts
 print("정해준 n값 = %d, 결과값 = %d, time = %.6f" %(n, k, ts))
 
