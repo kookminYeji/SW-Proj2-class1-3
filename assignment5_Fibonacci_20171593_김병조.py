@@ -6,26 +6,30 @@ def fibo(n):
     else :
         return fibo(n-1) + fibo(n-2)
 
-n = int(input("Enter a number : "))
-ts = time.time()
-if n <= 1 :
-    k = n
+try :
+    n = int(input("Enter a number : "))
+except ValueError :
+    print("That's not integer")
 else :
-    k = 1
-    num = 0
-    i = 1
-    while i < n :
-        a = k #전값
-        k = num + a #전값+전전값
-        num = a #전전값
-        i = i + 1
-ts = time.time() - ts
-print("정해준 n값 = %d, 결과값 = %d, time = %.6f" %(n, k, ts))
+    ts = time.time()
+    if n <= 1 :
+        k = n
+    else :
+        k = 1
+        num = 0
+        i = 1
+        while i < n :
+            a = k #전값
+            k = num + a #전값+전전값
+            num = a #전전값
+            i = i + 1
+    ts = time.time() - ts
+    print("정해준 n값 = %d, 결과값 = %d, time = %.6f" %(n, k, ts))
 
-ts2 = time.time()
-fibo_number = fibo(n)
-ts2 = time.time() - ts2
-print("정해준 n값 = %d, 결과값 = %d, time = %.6f" %(n, fibo_number, ts2))
+    ts2 = time.time()
+    fibo_number = fibo(n)
+    ts2 = time.time() - ts2
+    print("정해준 n값 = %d, 결과값 = %d, time = %.6f" %(n, fibo_number, ts2))
 
 """
 import time

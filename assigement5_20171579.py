@@ -1,12 +1,15 @@
 import time
 
 def fibo(n):
-    first, second = 1, 1
+    if n <= 1 :
+        return n
+    else :
+        first, second = 1, 1
 
-    for i in range(n-1):
-        first, second = second, first+second
+        for i in range(n-1):
+            first, second = second, first+second
 
-    return first
+        return first
 
 def fibo_recursive(n):
     if n <= 1 :
