@@ -7,17 +7,19 @@ def factorialRecursive(n):
 def factorial_wf(n):
     i = 0
     _factorial = 1
-    while i < n:
+    while ( i < n):
         _factorial = _factorial * ( i + 1)
         i+=1
     return _factorial
 
 
 def Combination(n,k):
+    if n < 0 or k < 0:
+        return
     if k == 0 or n == k:
         return 1
     elif n < k:
-        print(" n < k cannot do it")
+        return 0
     else:
         return int(Combination(n-1,k-1)+Combination(n-1,k))
 
