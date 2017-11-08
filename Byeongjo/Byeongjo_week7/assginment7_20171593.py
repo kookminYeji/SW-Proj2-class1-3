@@ -73,24 +73,21 @@ class Calculator(QWidget):
 
         numLayout = QGridLayout()
 
-        """
-        for i in range(1,10) :
-            if i%3 == 0 :
-                numLayout.addWidget(self.digitButton[i], , 2)
-            else :
-                numLayout.addWidget(self.digitButton[i], , i%3-1)
-        """
-
         numLayout.addWidget(self.digitButton[0], 3, 0)
-        numLayout.addWidget(self.digitButton[1], 2, 0)
-        numLayout.addWidget(self.digitButton[2], 2, 1)
-        numLayout.addWidget(self.digitButton[3], 2, 2)
-        numLayout.addWidget(self.digitButton[4], 1, 0)
-        numLayout.addWidget(self.digitButton[5], 1, 1)
-        numLayout.addWidget(self.digitButton[6], 1, 2)
-        numLayout.addWidget(self.digitButton[7], 0, 0)
-        numLayout.addWidget(self.digitButton[8], 0, 1)
-        numLayout.addWidget(self.digitButton[9], 0, 2)
+        
+        for i in range(1,10) :
+            if i == 3 :
+                numLayout.addWidget(self.digitButton[i], 2, 2)
+            elif i < 3 :
+                numLayout.addWidget(self.digitButton[i], 2, i%3-1)
+            elif i == 6 :
+                numLayout.addWidget(self.digitButton[i], 1, 2)
+            elif i < 6 :
+                numLayout.addWidget(self.digitButton[i], 1, i%3-1)
+            elif i == 9 :
+                numLayout.addWidget(self.digitButton[i], 0, 2)
+            else :
+                numLayout.addWidget(self.digitButton[i], 0, i%3-1)
 
         numLayout.addWidget(self.decButton, 3, 1)
         numLayout.addWidget(self.eqButton, 3, 2)
