@@ -4,7 +4,9 @@ from PyQt5.QtWidgets import QLineEdit, QToolButton
 from PyQt5.QtWidgets import QSizePolicy
 from PyQt5.QtWidgets import QLayout, QGridLayout
 
-from keypadCalc import *
+from keypadCalc import (factorial, decToBin, binToDec, decToRoman,
+                        numPadList, operatorList, constantList, functionList,
+                        constant, function)
 
 
 class Button(QToolButton):
