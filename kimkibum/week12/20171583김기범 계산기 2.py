@@ -28,7 +28,7 @@ class Calculator(QWidget):
         super().__init__(parent)
 
         # Display Window
-        self.display = QLineEdit()
+        self.display = QLineEdit('0')
         self.display.setReadOnly(True)
         self.display.setAlignment(Qt.AlignRight)
         self.display.setMaxLength(15)
@@ -73,7 +73,7 @@ class Calculator(QWidget):
 
     def buttonClicked(self):
 
-        if self.display.text() in 'Error!':
+        if self.display.text() in 'Error!' or self.display.text() == '0':
             self.display.setText('')
 
         button = self.sender()
