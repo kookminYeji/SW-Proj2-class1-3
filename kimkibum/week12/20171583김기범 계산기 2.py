@@ -4,7 +4,9 @@ from PyQt5.QtWidgets import QLineEdit, QToolButton
 from PyQt5.QtWidgets import QSizePolicy
 from PyQt5.QtWidgets import QLayout, QGridLayout
 
-from keypadCalc import *
+from keypadCalc import (factorial, decToBin, binToDec, decToRoman,
+                        numPadList, operatorList, constantList, functionList,
+                        constant, function)
 
 
 class Button(QToolButton):
@@ -28,7 +30,7 @@ class Calculator(QWidget):
         super().__init__(parent)
 
         # Display Window
-        self.display = QLineEdit()
+        self.display = QLineEdit('0')
         self.display.setReadOnly(True)
         self.display.setAlignment(Qt.AlignRight)
         self.display.setMaxLength(15)
@@ -73,7 +75,7 @@ class Calculator(QWidget):
 
     def buttonClicked(self):
 
-        if self.display.text() in 'Error!':
+        if self.display.text() in 'Error!' or self.display.text() == '0':
             self.display.setText('')
 
         button = self.sender()
